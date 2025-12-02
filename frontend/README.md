@@ -1,3 +1,165 @@
+📡 Smart Industry – Real-Time Multi-Zone Air Quality Monitoring & Health-Aware Alert System
+
+A full-stack, LAN-based, industrial air-quality monitoring system built using ESP32, low-cost sensors, Flask, WebSockets, and a React.js role-based dashboard.
+This system enables real-time pollutant tracking, worker-specific health risk alerts, and zone-wise environmental monitoring without requiring any cloud services.
+
+🚀 Key Features
+🔴 Multi-Zone Air Quality Monitoring
+
+ESP32-based sensor nodes for each zone (room, floor, production unit, lab, etc.)
+
+Measures PM1, PM2.5, PM10, VOC, CO, temperature, humidity
+
+1-second data transmission over LAN
+
+🧠 Health-Aware Personalized Alerts
+
+Users can register with:
+
+Age
+
+Chronic conditions (asthma, cardiovascular issues, respiratory risks)
+
+Work environment (chemical exposure, welding, etc.)
+
+Alerts dynamically adapt using:
+
+WHO thresholds
+
+User health profile
+
+ML classifier
+
+Fuzzy logic risk estimation
+
+🖥 Role-Based Dashboard
+
+Admin Dashboard
+
+Manage and view all zones
+
+View real-time sensor streams
+
+Access historical CSV logs
+
+Configure thresholds
+
+Worker/User Dashboard
+
+View personal exposure status
+
+Receive personalized alerts
+
+Get safety recommendations
+
+⚡ Offline First
+
+Entire system runs on LAN
+
+No internet or cloud dependency
+
+CSV-based logging ensures reliability
+
+📬 Alert Channels
+
+Live dashboard alerts
+
+Email alerts
+
+SMS alerts (Twilio integration through environment variables)
+
+🧩 System Architecture
+
+ESP32 → Flask API → WebSocket Server → React Dashboard
+
+ESP32 collects sensor data using FreeRTOS tasks
+
+Sends JSON packets over LAN
+
+Flask backend:
+
+Stores data (SQLite + CSV)
+
+Runs ML & fuzzy logic alerts
+
+Pushes live updates to WebSocket server
+
+React.js frontend:
+
+Real-time risk visualization
+
+Role-based UI
+
+🔍 Hardware Components
+Component	Purpose
+ESP32-S3-WROOM	Wi-Fi transmission + sensor hub
+SHT31	Temp & humidity
+Panasonic SN-GCJA5	PM1, PM2.5, PM10
+DFRobot VOC Sensor	VOC levels
+DFRobot CO Sensor	CO ppm
+DS3231 RTC	Timestamps for offline stability
+OLED Display	On-device preview
+
+(Described in detail in the invention disclosure). 
+
+IDF2
+
+💡 Software Stack
+
+Arduino/ESP32 (FreeRTOS tasks)
+
+Python Flask (API + processing + alerting)
+
+Python ML Model (risk prediction)
+
+Fuzzy Logic Engine
+
+React.js (role-based dashboard)
+
+WebSocket server (real-time updates)
+
+SQLite + CSV logs
+
+🔔 Functional Workflow
+
+Sensors collect data every 1 second
+
+ESP32 sends JSON packet → Flask backend
+
+Backend:
+
+Validates & stores data
+
+Computes adaptive thresholds
+
+Runs ML risk model
+
+Runs fuzzy logic model
+
+If risk detected:
+
+Generate messages
+
+Notify user via email/SMS
+
+Update live dashboards
+
+Admin views all zones; users view personalized alerts
+
+
+
+🧪 Use Case Domains
+
+Industrial workspaces
+
+Hospitals / ICUs / labs
+
+Educational institutions
+
+Smart homes
+
+Office floors and sections
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
